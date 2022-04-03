@@ -35,8 +35,10 @@ int main() {
         }
 
     }
-    num=std::stof(numStr);
-    nums.emplace_back(num,false);
+    if(!numStr.empty()) {
+        num = std::stof(numStr);
+        nums.emplace_back(num, false);
+    }
     std::stack<std::pair<float,bool>> temp;
     for(auto &p:nums){
         if(p.second){
@@ -46,7 +48,7 @@ int main() {
                     temp.pop();
                 }
                 temp.pop();
-            }else if((!temp.empty())&&(temp.top().first==(float)'*'||temp.top().first==(float)'/')&&(p.first!=(float)'*'&&p.first!=(float)'/')){
+            }else if((!temp.empty())&&(temp.top().first==(float)'*'||temp.top().first==(float)'/')&&(p.first==(float)'+'||p.first==(float)'-')){
                 while (!temp.empty()){
                     RevPolish.emplace_back(temp.top());
                     temp.pop();
