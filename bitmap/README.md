@@ -196,13 +196,13 @@ int main(int argc,char *argv[])
 }
 ````
 
-![](/home/blindinlight/Documents/C++ProgramDesign/bitmap/a.bmp)
+![](https://raw.githubusercontent.com/Blindinlights-cc/XDProgramDisign/master/bitmap/a.bmp)
 
-![](/home/blindinlight/Documents/C++ProgramDesign/bitmap/b.bmp)
+![](https://raw.githubusercontent.com/Blindinlights-cc/XDProgramDisign/master/bitmap/b.bmp)
 
 两幅图片按4:1混合效果
 
-![](/home/blindinlight/CLionProjects/bitmap/c.bmp)
+![](https://raw.githubusercontent.com/Blindinlights-cc/XDProgramDisign/master/bitmap/c.bmp)
 
 > 关于第二幅图片
 >
