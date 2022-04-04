@@ -33,15 +33,7 @@ Status Blend(std::string const &FilenameA,std::string const &MixRate,std::string
     return OK;
 
 }
-float GetMixRate(std::string const &MixRate){
-    std::string Rate(MixRate);
-    for(auto &p:Rate)
-        if(p=='%')p=' ';
-    float rate =(float )std::stoi(Rate)/100;
-    return rate;
 
-
-}
 Status ReadInfo(BitmapHeader &p,std::string const &FileName,std::vector<BYTE> &rgb){
     std::ifstream in;
     in.open(FileName);
