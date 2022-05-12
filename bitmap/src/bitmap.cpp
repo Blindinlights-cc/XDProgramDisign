@@ -17,14 +17,13 @@ Status Blend(std::string const &FilenameA,std::string const &MixRate,std::string
     size_t size=sizeof ch;
     std::fstream in(FilenameA);
     std::ofstream out(FilenameRes);
-    for (size_t i = 0; i < bitmapA.bfOffBits; i++)
-    {
+    for (size_t i = 0; i < bitmapA.bfOffBits; i++){
         in.read(re(ch),sizeof ch);
         out.write(re(ch),size);
     }
     out.seekp(bitmapA.bfOffBits+1,std::ios::beg);
     size_t len =rgbA.size();
-    for (size_t i = 0; i < rgbA.size(); i++)
+    for (size_t i = 0; i < len; i++)
     {
         ch=(BYTE)(rgbA[i]*rate)+(BYTE)(rgbB[i]*(1-rate));
         out.write(re(ch), size);
@@ -33,7 +32,15 @@ Status Blend(std::string const &FilenameA,std::string const &MixRate,std::string
     return OK;
 
 }
+float GetMixRate(std::string const &MixRate){
+    std::string Rate(MixRate);
+    for(auto &p:Rate)
+        if(p=='%')p=' ';
+    float rate =(float )std::stoi(Rate)/100;
+    return rate;
 
+
+}
 Status ReadInfo(BitmapHeader &p,std::string const &FileName,std::vector<BYTE> &rgb){
     std::ifstream in;
     in.open(FileName);
