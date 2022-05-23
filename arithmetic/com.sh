@@ -1,0 +1,1 @@
+g++ main.cpp -O2 -Wall -o arithmetic  -std=c++20

@@ -2,7 +2,6 @@
 #include <string>
 #include <vector>
 #include <set>
-#pragma Optimize(2)
 int main() {
     std::string Origin;
     std::string numStr;
@@ -12,7 +11,7 @@ int main() {
     std::vector<std::string> nums;
     std::vector<std::string> RevPolish;
     for(auto const &p:Origin){
-        if(ch.contains(p)){
+        if(ch.find(p)!=ch.end()){
 
             if(!numStr.empty()){
                 nums.push_back(numStr);
@@ -37,7 +36,7 @@ int main() {
     }
     std::vector<std::string> temp;
     for(auto &p:nums){
-        if (str.contains(p)){
+        if (str.find(p)!=str.end()){
             if (p == ")") {
                 while (temp.back() != "(") {
                     RevPolish.push_back(temp.back());
@@ -45,7 +44,7 @@ int main() {
                 }
                 temp.pop_back();
             } else if ((!temp.empty()) && (temp.back() == "*" || temp.back() == "/") && (p == "+" || p == "-")) {
-                while (!temp.empty()) {
+                while ((!temp.empty())&&temp.back()!="(") {
                     RevPolish.push_back(temp.back());
                     temp.pop_back();
                 }
@@ -66,7 +65,7 @@ int main() {
     float opA;
     float opB;
     for(auto &p:RevPolish){
-        if(str.contains(p)){
+        if(str.find(p)!=str.end()){
             opA= res.back();
             res.pop_back();
             opB= res.back();
@@ -88,6 +87,6 @@ int main() {
     }
 
     float ans=res.back();
-    std::cout<<ans;
+    std::cout<<ans<<"\n";
 
 }
