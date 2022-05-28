@@ -1,6 +1,5 @@
 #include<iostream>
 #include"contact.h"
-#pragma Optimize(2)
 void ShowMenu(){
     //MainMenu
     system("clear");

@@ -1,6 +1,7 @@
 //
 // Created by blindinlight on 4/3/22.
 //
+#include <cstdio>
 #define CONTACT_CONTACT_CPP
 #include "contact.h"
 #include<algorithm>
@@ -86,7 +87,7 @@ Status SearchPerson()
     // search person and display
     std::string s;
     std::cout<<"Please enter the name you want to search: ";
-    std::cin>>s;
+    getline(std::cin, s);
     auto it =Search(s);
     if(it==ContactList.end()){
         // if not ,error
